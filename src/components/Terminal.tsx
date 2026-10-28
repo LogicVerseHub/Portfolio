@@ -25,8 +25,10 @@ function isCommand(value: string): value is Command {
   return (COMMANDS as readonly string[]).includes(value);
 }
 
-function commandOutput(command: Exclude<Command, 'clear'>): string[] {
+function commandOutput(command: Command): string[] {
   switch (command) {
+    case 'clear':
+      return [];
     case 'help':
       return [
         'Available commands:',
